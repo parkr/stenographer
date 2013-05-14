@@ -1,1 +1,1 @@
-web: bin/hubot -a irc -n mojobot
+web: bin/hubot -a irc -n stenog

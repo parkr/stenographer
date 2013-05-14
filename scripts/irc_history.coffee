@@ -23,35 +23,8 @@ querystring = require('querystring')
 class History
   constructor: (@robot, @keep) ->
     @cache = {}
-    @robot.brain.on 'loaded', =>
-      if @robot.brain.data.history
-        @robot.logger.info "Loading saved chat history"
-        @cache = @robot.brain.data.history
 
-  add: (room, message) ->
-    @cache[room] ?= []
-    @cache[room].push message
-    @logEntryExternally(room, message)
-    while @cache.length > @keep
-      @cache.shift()
-    @robot.brain.data.history = @cache
-
-  show: (room, lines) ->
-    @cache[room] ?= []
-    if (lines > @cache[room].length)
-      lines = @cache[room].length
-    reply = 'Showing ' + lines + ' lines of history:\n'
-    reply = reply + @entryToString(message) + '\n' for message in @cache[room][-lines..]
-    return reply
-
-  entryToString: (event) ->
-    return '[' + event.hours + ':' + event.minutes + '] ' + event.name + ': ' + event.message
-
-  clear: ->
-    @cache = {}
-    @robot.brain.data.history = @cache
-
-  logEntryExternally: (room, event) ->
+  add: (room, event) ->
     if process.env.HUBOT_LOG_SERVER_TOKEN? and process.env.HUBOT_LOG_SERVER_HOST?
       process.nextTick ->
         console.log("SENDING MESSAGE To #{process.env.HUBOT_LOG_SERVER_HOST}...")
@@ -107,17 +80,3 @@ module.exports = (robot) ->
   robot.hear /(.*)/i, (msg) ->
     historyentry = new HistoryEntry(msg.message.room, msg.message.user.name, msg.match[1])
     history.add msg.message.room, historyentry
-
-  robot.respond /show history\s*(\d+)?/i, (msg) ->
-    if msg.match[1]
-      lines = msg.match[1]
-    else
-      lines = history.keep
-    reply_to =  msg.message.user.name
-    msg.send "Sending room history to " + reply_to + " via PM"
-    console.log "sending a history PM to " + reply_to
-    robot.adapter.reply { user: { reply_to: reply_to, name: reply_to }}, history.show(msg.message.room, lines)
-
-  robot.respond /clear history/i, (msg) ->
-    msg.send "Eh, sorry mate. Can't clear the history."
-    # history.clear()
