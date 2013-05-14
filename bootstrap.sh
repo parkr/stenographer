@@ -7,8 +7,10 @@ echo "Ok, here goes."
 heroku create --stack cedar
 heroku config:add HUBOT_HISTORY_LINES=10000
 heroku config:add HUBOT_IRC_SERVER="irc.freenode.net"
-heroku config:add HUBOT_IRC_ROOMS="#jekyll"
-heroku config:add HUBOT_IRC_NICK="stenographer"
+heroku config:add HUBOT_IRC_ROOMS="#room"
+heroku config:add HUBOT_IRC_NICK=""
+heroku config:add HUBOT_LOG_SERVER_HOST=""
+heroku config:add HUBOT_LOG_SERVER_TOKEN=""
 #heroku config:add HUBOT_IRC_UNFLOOD="false"
 git push heroku master
 heroku ps:scale web=1
