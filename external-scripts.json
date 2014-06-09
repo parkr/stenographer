@@ -1,1 +1,4 @@
-["hubot-stenog"]
+[
+  "hubot-info",
+  "hubot-stenog"
+]
