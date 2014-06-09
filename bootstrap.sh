@@ -11,6 +11,6 @@ heroku config:add HUBOT_IRC_ROOMS="#room"
 heroku config:add HUBOT_IRC_NICK=""
 heroku config:add HUBOT_LOG_SERVER_HOST=""
 heroku config:add HUBOT_LOG_SERVER_TOKEN=""
-#heroku config:add HUBOT_IRC_UNFLOOD="false"
+heroku config:add HUBOT_IRC_UNFLOOD="false"
 git push heroku master
 heroku ps:scale web=1
