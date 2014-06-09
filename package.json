@@ -1,6 +1,4 @@
 {
-  "name": "Stenographer",
-  "version": "3.0.3",
   "licenses": [
     {
       "type": "MIT",
@@ -11,7 +9,7 @@
     "hubot": "^2.7.5",
     "hubot-info": "^0.1.0",
     "hubot-irc": "^0.2.6",
-    "hubot-stenog": "^0.1.3"
+    "hubot-stenog": "^0.1.4"
   },
   "engines": {
     "node": "0.10.x",
