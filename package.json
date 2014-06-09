@@ -9,7 +9,7 @@
     "hubot": "^2.7.5",
     "hubot-info": "^0.1.0",
     "hubot-irc": "^0.2.6",
-    "hubot-stenog": "^0.1.4"
+    "hubot-stenog": "^0.2.0"
   },
   "engines": {
     "node": "0.10.x",
