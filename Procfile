@@ -1,1 +1,1 @@
-web: ./node_modules/.bin/hubot -a irc -n stenog
+web: script/hubot -a irc -n stenog
