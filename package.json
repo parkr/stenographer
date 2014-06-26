@@ -9,7 +9,7 @@
     "hubot": "^2.7.5",
     "hubot-info": "^0.1.0",
     "hubot-irc": "^0.2.6",
-    "hubot-stenog": "git://github.com/parkr/hubot-stenographer.git#feb382147c1b710e371aea80861fbfa1a433b9f2"
+    "hubot-stenog": "git://github.com/parkr/hubot-stenographer.git#bc3e2da00d2d699e13d4f532ec429ecc4acd71ed"
   },
   "engines": {
     "node": "0.10.x",
