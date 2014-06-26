@@ -1,1 +1,1 @@
-web: script/hubot -a irc -n stenog -l /
+web: script/hubot -a irc -l stenog
