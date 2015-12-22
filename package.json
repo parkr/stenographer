@@ -20,7 +20,7 @@
     "hubot": "^2.17.0",
     "hubot-heroku-keepalive": "^1.0.1",
     "hubot-irc": "^0.2.8",
-    "hubot-stenog": "git://github.com/parkr/hubot-stenographer.git#59f70e2adac34dab86ff88cf31aae13541e1af8d"
+    "hubot-stenog": "^0.5.0"
   },
   "engines": {
     "node": "4.x"
