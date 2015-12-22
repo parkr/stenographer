@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/parkr/stenographer",
   "dependencies": {
-    "hubot": "^2.11.0",
-    "hubot-heroku-keepalive": "0.0.4",
-    "hubot-irc": "^0.2.7",
-    "hubot-stenog": "^0.3.0"
+    "hubot": "^2.17.0",
+    "hubot-heroku-keepalive": "^1.0.1",
+    "hubot-irc": "^0.2.8",
+    "hubot-stenog": "^0.4.0"
   }
 }
