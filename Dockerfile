@@ -9,6 +9,9 @@ RUN apk add --no-cache \
   make \
   python2
 
+RUN set -ex && adduser -D stenographer && chown -R stenographer /app/stenographer
+USER stenographer
+
 COPY package* ./
 
 RUN set -ex && npm install && npm audit fix
