@@ -12,6 +12,9 @@ test: bootstrap
 docker-build:
 	docker build -t $(IMAGE):$(REV) .
 
+dive: docker-build
+	dive $(IMAGE):$(REV)
+
 docker-test: docker-build
 	docker run --rm -it --net=host --env-file=.env $(IMAGE):$(REV)
 
