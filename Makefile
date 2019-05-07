@@ -16,7 +16,7 @@ dive: docker-build
 	dive $(IMAGE):$(REV)
 
 docker-test: docker-build
-	docker run --rm -it --net=host --env-file=.env $(IMAGE):$(REV)
+	docker run --rm -it --name=stenographer_test --net=host --env-file=.env $(IMAGE):$(REV)
 
 docker-release: docker-build
 	docker push $(IMAGE):$(REV)

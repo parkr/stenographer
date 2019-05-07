@@ -19,6 +19,7 @@
   "homepage": "https://github.com/parkr/stenographer",
   "dependencies": {
     "hubot": "^3.3.0",
+    "hubot-health": "^0.1.0",
     "hubot-irc": "^0.4.0",
     "hubot-stenog": "^0.6.0",
     "twilio": "^3.28.1"

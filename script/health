@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const request = require('request');
+
+PORT = process.env.PORT || 8080
+
+request(`http://127.0.0.1:${PORT}/health`, { json: true }, (err, response, body) => {
+  if (err) {
+    console.log(err)
+    console.log('statusCode:', response && response.statusCode)
+    process.exit(1)
+    return
+  }
+  console.log('statusCode:', response && response.statusCode)
+  console.log('body:', body)
+});
