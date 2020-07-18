@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/parkr/stenographer",
   "dependencies": {
-    "hubot": "^3.3.0",
+    "hubot": "^3.3.2",
     "hubot-health": "^0.1.0",
-    "hubot-irc": "^0.4.0",
+    "hubot-irc": "^0.4.2",
     "hubot-stenog": "^0.6.0",
-    "twilio": "^3.28.1"
+    "twilio": "^3.48.0"
   }
 }
