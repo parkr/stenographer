@@ -1,5 +1,5 @@
 IMAGE=parkr/stenographer
-REV=$(shell git rev-parse HEAD)
+REV:=$(shell git rev-parse HEAD)
 
 all: bootstrap test
 
