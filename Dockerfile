@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:14-alpine as builder
 WORKDIR /app/stenographer
 RUN apk add --no-cache \
   g++ \
@@ -17,8 +17,8 @@ COPY script/health /app/stenographer/script/health
 FROM node:14-alpine
 RUN set -ex && adduser -D -u 1001 stenographer
 USER stenographer
-HEALTHCHECK --start-period=1ms --interval=30s --timeout=5s --retries=1 \
+HEALTHCHECK --start-period=1s --interval=30s --timeout=5s --retries=1 \
   CMD [ "/app/stenographer/script/health" ]
-COPY --from=0 --chown=stenographer /app/stenographer/ /app/stenographer
+COPY --from=builder --chown=stenographer /app/stenographer/ /app/stenographer
 WORKDIR /app/stenographer
 ENTRYPOINT [ "/app/stenographer/script/hubot" ]
