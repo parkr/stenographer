@@ -1,17 +1,16 @@
 on:
   push:
     branches:
-      - master
       - main
       - github-actions
 
-name: Publish on push to master
+name: Publish on push to main
 jobs:
   publishDockerImage:
     name: Publish Docker Image
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: Login to Docker Registry
       uses: parkr/actions/docker-auth@main
       with:
