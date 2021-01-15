@@ -6,13 +6,15 @@ RUN apk add --no-cache \
   icu-dev \
   make \
   python2
-RUN set -ex && adduser -D -u 1001 stenographer && chown -R stenographer /app/stenographer
+RUN set -ex \
+  && adduser -D -u 1001 stenographer \
+  && chown -R stenographer /app/stenographer
 USER stenographer
-COPY package* /app/stenographer/
+COPY --chown=stenographer package* /app/stenographer/
 RUN set -ex && npm install && npm audit fix
-COPY *.json /app/stenographer/
-COPY script/hubot /app/stenographer/script/hubot
-COPY script/health /app/stenographer/script/health
+COPY --chown=stenographer *.json /app/stenographer/
+COPY --chown=stenographer script/hubot /app/stenographer/script/hubot
+COPY --chown=stenographer script/health /app/stenographer/script/health
 
 FROM node:15-alpine
 RUN set -ex && adduser -D -u 1001 stenographer
