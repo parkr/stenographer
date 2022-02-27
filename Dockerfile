@@ -5,7 +5,7 @@ RUN apk add --no-cache \
   git \
   icu-dev \
   make \
-  python2
+  python3
 RUN set -ex \
   && adduser -D -u 1001 stenographer \
   && chown -R stenographer /app/stenographer
@@ -16,11 +16,11 @@ COPY --chown=stenographer *.json /app/stenographer/
 COPY --chown=stenographer script/hubot /app/stenographer/script/hubot
 COPY --chown=stenographer script/health /app/stenographer/script/health
 
-FROM node:17-alpine
-RUN set -ex && adduser -D -u 1001 stenographer
-USER stenographer
-HEALTHCHECK --start-period=1s --interval=30s --timeout=5s --retries=1 \
-  CMD [ "/app/stenographer/script/health" ]
-COPY --from=builder --chown=stenographer /app/stenographer/ /app/stenographer
-WORKDIR /app/stenographer
-ENTRYPOINT [ "/app/stenographer/script/hubot" ]
+# FROM node:17-alpine
+# RUN set -ex && adduser -D -u 1001 stenographer
+# USER stenographer
+# HEALTHCHECK --start-period=1s --interval=30s --timeout=5s --retries=1 \
+#   CMD [ "/app/stenographer/script/health" ]
+# COPY --from=builder --chown=stenographer /app/stenographer/ /app/stenographer
+# WORKDIR /app/stenographer
+# ENTRYPOINT [ "/app/stenographer/script/hubot" ]
