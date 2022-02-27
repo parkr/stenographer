@@ -9,6 +9,10 @@ bootstrap:
 test: bootstrap
 	script/cibuild
 
+dev:
+	docker build -t $(IMAGE):$(REV)-dev -f Dockerfile.dev .
+	docker run -it --rm --entrypoint /bin/sh -v "$(shell pwd):/app/stenographer" $(IMAGE):$(REV)-dev
+
 docker-build:
 	docker build -t $(IMAGE):$(REV) .
 

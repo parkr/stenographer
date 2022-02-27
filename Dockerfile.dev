@@ -1,0 +1,8 @@
+FROM node:17-alpine as builder
+WORKDIR /app/stenographer
+RUN apk add --no-cache \
+  g++ \
+  git \
+  icu-dev \
+  make \
+  python3
