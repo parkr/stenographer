@@ -22,7 +22,6 @@
     "hubot-health": "^0.1.0",
     "hubot-irc": "^0.4.2",
     "hubot-stenog": "^0.6.0",
-    "request": "^2.88.2",
     "twilio": "^3.48.0"
   }
 }
