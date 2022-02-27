@@ -10,12 +10,12 @@ http.get(`http://127.0.0.1:${PORT}/health`, res => {
     console.log('body:', chunk)
   })
 
-  console.log('statusCode:', response && response.statusCode)
+  console.log('statusCode:', statusCode)
 
   if (statusCode !== 200) {
     process.exit(1)
   }
 }).on('error', (e) => {
-  console.error(`error: ${e.message}`);
+  console.error(`error: ${e.message}`)
   process.exit(1)
 })
