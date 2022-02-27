@@ -5,7 +5,7 @@ RUN apk add --no-cache \
   git \
   icu-dev \
   make \
-  python2
+  python3
 RUN set -ex \
   && adduser -D -u 1001 stenographer \
   && chown -R stenographer /app/stenographer
